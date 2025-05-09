@@ -17,7 +17,7 @@ public class GetCallerTariffTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Service.BASE_URL_BRT;
+        RestAssured.baseURI = Service.BASE_URL;
     }
 
     @Test
@@ -25,7 +25,7 @@ public class GetCallerTariffTest {
     @Description("Тариф обновлён, если все данные введены корректно")
     public void updateCallerTariffTest() {
         Response response = step.callerUpdateTariff("1", "11");
-        step.compareResultToTrue(response, HTTP_OK);
+        step.statusCodeCorrect(response, HTTP_OK);
     }
 
     //На будущее: прописать негативные тесты?

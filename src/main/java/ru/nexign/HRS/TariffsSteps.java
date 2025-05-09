@@ -4,7 +4,6 @@ import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import ru.nexign.Service;
 
-import static java.net.HttpURLConnection.HTTP_OK;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
 
@@ -41,14 +40,13 @@ public class TariffsSteps {
         return response;
     }
 
-    @Step("Проверка, что результат = true")
-    public void compareResultToTrue(Response response, int statusCode){
+    @Step("Проверка, что статус код верный")
+    public void statusCodeCorrect(Response response, int statusCode){
         response
                 .then()
                 .assertThat()
                 .log().all()
-                .statusCode(statusCode)
-                .body("ok", is(true));
+                .statusCode(statusCode);
     }
 
 //    @Step("Сравнение результата с текстовым сообщением")

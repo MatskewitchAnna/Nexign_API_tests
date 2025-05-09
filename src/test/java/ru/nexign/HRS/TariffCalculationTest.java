@@ -16,7 +16,7 @@ public class TariffCalculationTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Service.BASE_URL_HRS;
+        RestAssured.baseURI = Service.BASE_URL;
     }
 
     @Test
@@ -25,7 +25,7 @@ public class TariffCalculationTest {
     public void createNewCallerTest() {
         Response response = step.tariffCalculation("1", "11", "Ромашка",
                 "2025-05-06T11:30:00.537Z", "2025-05-06T11:40:00.537Z", 100, 100);
-        step.compareResultToTrue(response, HTTP_OK);
+        step.statusCodeCorrect(response, HTTP_OK);
     }
 
     // Дописать негативные тесты? + Проверка правильности расчёта (подумать, как сделать)

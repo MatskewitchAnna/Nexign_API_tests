@@ -16,7 +16,7 @@ public class GetCallerInfoTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Service.BASE_URL_BRT;
+        RestAssured.baseURI = Service.BASE_URL;
     }
 
     @Test
@@ -24,7 +24,7 @@ public class GetCallerInfoTest {
     @Description("Информация получена, если все данные введены корректно")
     public void getCallerInfoTest() {
         Response response = step.callerInfo("1");
-        step.compareResultToTrue(response, HTTP_OK);
+        step.statusCodeCorrect(response, HTTP_OK);
     }
 
     //На будущее: прописать негативные тесты?

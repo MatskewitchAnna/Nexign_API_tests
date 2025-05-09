@@ -17,7 +17,7 @@ public class CreateCallerTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Service.BASE_URL_BRT;
+        RestAssured.baseURI = Service.BASE_URL;
         callerRandom = CallerRandomData.randomCaller();
     }
 
@@ -26,7 +26,7 @@ public class CreateCallerTest {
     @Description("Абонент создан, если все данные введены корректно")
     public void createNewCallerTest() {
         Response response = step.callerCreate(callerRandom);
-        step.compareResultToTrue(response, HTTP_CREATED);
+        step.statusCodeCorrect(response, HTTP_CREATED);
     }
 
     //На будущее: прописать негативные тесты?

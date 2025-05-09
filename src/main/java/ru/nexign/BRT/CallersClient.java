@@ -14,7 +14,7 @@ public class CallersClient extends Service {
 
     public Response createCaller (Callers callers){
         return given()
-                .spec(getBaseSpecificationBRT())
+                .spec(getBaseSpecification())
                 .and()
                 .body(callers)
                 .log().all()
@@ -23,13 +23,13 @@ public class CallersClient extends Service {
 
     public Response getCallerInfo (String callerUuid){
         return given()
-                .spec(getBaseSpecificationBRT())
+                .spec(getBaseSpecification())
                 .get(CALLER_INFO_PATH + callerUuid);
     }
 
     public Response getAllCallersInfo (){
         return given()
-                .spec(getBaseSpecificationBRT())
+                .spec(getBaseSpecification())
                 .get(ALL_CALLERS_INFO_PATH);
     }
 
@@ -37,7 +37,7 @@ public class CallersClient extends Service {
         String tariffData = "{ \"callersUuid\": " + callerUuid + "," +
                 "\n{ \"tariffUuid\": " + tariffUuid +"}";
         return given()
-                .spec(getBaseSpecificationBRT())
+                .spec(getBaseSpecification())
                 .and()
                 .body(tariffData)
                 .log().all()
@@ -48,7 +48,7 @@ public class CallersClient extends Service {
         String balanceData = "{ \"callersUuid\": " + callerUuid + "," +
                 "\n{ \"amount\": " + amount +"}";
         return given()
-                .spec(getBaseSpecificationBRT())
+                .spec(getBaseSpecification())
                 .and()
                 .body(balanceData)
                 .log().all()

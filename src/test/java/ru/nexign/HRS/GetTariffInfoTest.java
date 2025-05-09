@@ -15,15 +15,15 @@ public class GetTariffInfoTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Service.BASE_URL_HRS;
+        RestAssured.baseURI = Service.BASE_URL;
     }
 
     @Test
     @DisplayName("Получение информации о тарифе")
     @Description("Информация получена, если все данные введены корректно")
     public void getTariffInfoTest() {
-        Response response = step.tariffInfo("1");
-        step.compareResultToTrue(response, HTTP_OK);
+        Response response = step.tariffInfo("11");
+        step.statusCodeCorrect(response, HTTP_OK);
     }
 
     //На будущее: прописать негативные тесты?

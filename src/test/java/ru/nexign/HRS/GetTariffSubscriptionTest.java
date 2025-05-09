@@ -15,7 +15,7 @@ public class GetTariffSubscriptionTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Service.BASE_URL_HRS;
+        RestAssured.baseURI = Service.BASE_URL;
     }
 
     @Test
@@ -23,7 +23,7 @@ public class GetTariffSubscriptionTest {
     @Description("Информация получена, если все данные введены корректно")
     public void getTariffSubscriptionTest() {
         Response response = step.tariffSubscription("11");
-        step.compareResultToTrue(response, HTTP_OK);
+        step.statusCodeCorrect(response, HTTP_OK);
     }
 
     //На будущее: прописать негативные тесты?

@@ -15,7 +15,7 @@ public class GetAllAllTariffsInfoTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Service.BASE_URL_HRS;
+        RestAssured.baseURI = Service.BASE_URL;
     }
 
     @Test
@@ -23,7 +23,7 @@ public class GetAllAllTariffsInfoTest {
     @Description("Информация получена, если все данные введены корректно")
     public void getAllTariffsInfoTest() {
         Response response = step.allTariffsInfo();
-        step.compareResultToTrue(response, HTTP_OK);
+        step.statusCodeCorrect(response, HTTP_OK);
     }
 
     //На будущее: прописать негативные тесты?

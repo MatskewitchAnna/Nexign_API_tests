@@ -15,7 +15,7 @@ public class GetReplenishmentListTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = Service.BASE_URL_BRT;
+        RestAssured.baseURI = Service.BASE_URL;
     }
 
     @Test
@@ -23,7 +23,7 @@ public class GetReplenishmentListTest {
     @Description("Баланс пополнен, если все данные введены корректно")
     public void replenishmentBalanceTest() {
         Response response = step.replenishmentBalance("1", 100);
-        step.compareResultToTrue(response, HTTP_OK);
+        step.statusCodeCorrect(response, HTTP_OK);
     }
 
     //На будущее: прописать негативные тесты?
